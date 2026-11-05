@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "url-join-fragment",
+  "version": 1,
+  "kind": "Historical public repository bug",
+  "repository": "https://github.com/jfromaniello/url-join",
+  "issueOrPullRequest": "https://github.com/jfromaniello/url-join/pull/133",
+  "baselineCommit": "32815bf5d91a5e0add5c7c9ee3b74d2ae61885de",
+  "fixCommit": "cceb648e479c25b8b16dc71aebec852d4d87f679",
+  "sourcePath": "lib/url-join.js",
+  "testPath": "test/tests.js",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2015 Jos\u00e9 F. Romaniello",
+  "licensePath": "baseline/LICENSE",
+  "testProvenance": "Upstream test/tests.js at the fix commit, unmodified. Browser case table transcribes selected upstream assertions; one extra boundary case is authored by FixFirst.",
+  "transformations": [
+    "Repository snapshot includes all non-dot tracked files at baseline; CI/dotfiles are omitted and not executed.",
+    "Browser editor contains the complete upstream baseline module byte-for-byte. It is evaluated as a native ES module, without source rewriting.",
+    "Replay overlays the fix-commit test suite on the baseline snapshot. Reference replay additionally overlays the upstream repaired source. No dependency install or package script runs."
+  ],
+  "contamination": "Public historical fix and tests: suitable for practice, not a hidden or contamination-free assessment.",
+  "runtime": {
+    "image": "node@sha256:bc0a2afd3b74ce12222fc8bab99271e66257f021078f5f4a5d687a77d280c1d9",
+    "tagAtVerification": "node:26.13.0-bookworm-slim",
+    "platform": "linux/arm64",
+    "command": [
+      "node",
+      "--test",
+      "--test-reporter=tap",
+      "test/tests.js"
+    ],
+    "network": "none",
+    "readOnly": true,
+    "user": "65534:65534",
+    "memoryMB": 256,
+    "cpus": 1,
+    "pidsLimit": 64,
+    "deadlineSeconds": 15,
+    "outputLimitBytes": 131072
+  },
+  "sha256": {
+    "baseline/CHANGELOG.md": "e74d82dbd8664dbc74d6dca27d3a1e8a35cd880871ca1d08f9d9e365c02212c8",
+    "baseline/LICENSE": "08e017f066892c56857a93c2168b37222091ad080ca9384972fd5040daf174f4",
+    "baseline/README.md": "7a81c025f1f3627a40414e88c8b6825ebf0ab7e5d98cac603b174ee8cc30c666",
+    "baseline/bin/changelog.js": "1d3345b6fbfa50a82d1f35b24c11eb0206c9a4620cfeca0550cf56d1e2f5fc46",
+    "baseline/lib/url-join.d.ts": "e1aac8c3da819e00be84ea1735952966d524a9f35db3725409b80831ad746a01",
+    "baseline/lib/url-join.js": "f72c171afe4a1a57ac30d01b38d724201deeed2a8d4e524a2d2a94ff62fa22d7",
+    "baseline/package-lock.json": "06cb80ad9ee61af0e005b42e3ff61f02516dc473968260abcc8df741e62d446a",
+    "baseline/package.json": "a569bfd9cf2514ef50a366e0376171c26cacad8be7924073ecf8cf12e3598ad2",
+    "baseline/test/tests.js": "72038c24806d7866e056bf732e5d366b751adc3947217cf030232d8a773a9730",
+    "reference/lib/url-join.js": "053928f8d2de006c6e04e7e842822dd78f3f8ab073047e08466dc94534c91ac7",
+    "reference/test/tests.js": "eb6cb7074bf2554b3d3d178d5b8c8d1182d7cd114bb3a6fad8941ae79aa466a0"
+  }
+}

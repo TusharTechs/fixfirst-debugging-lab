@@ -1,0 +1,15 @@
+{
+  "url": "http://127.0.0.1:4180",
+  "at": "2026-11-05T14:30:34.258Z",
+  "mentorMode": "Guided coach · no model",
+  "baseline": "5/10",
+  "repair": "10/10",
+  "withRegression": "11/11",
+  "originalRegression": "failed",
+  "repairedRegression": "passed",
+  "exportMarkedTechnical": true,
+  "ordinaryProgressPreserved": true,
+  "mobileFits": true,
+  "pageErrors": [],
+  "passed": true
+}

@@ -1,0 +1,39 @@
+{
+  "version": "transfer-dev-v1.2",
+  "status": "prospective-development-protocol-not-a-registered-study",
+  "date": "2026-11-05",
+  "license": "MIT",
+  "arms": [
+    "local-model",
+    "guided-baseline"
+  ],
+  "comparison": "Same public practice tasks, prerequisite gates, action menus, approved questions, evidence, UI and time budget. Only action selection differs: local model versus first allowed scaffold action. Model fallbacks remain in their assigned arm and are reported.",
+  "forms": [
+    "A",
+    "B"
+  ],
+  "design": "Researcher-assigned counterbalanced forms: pretest A/posttest B or pretest B/posttest A; block randomize coaching arm and form order. Forms are provisional and must be difficulty-calibrated before confirmatory use.",
+  "primary": "Intention-to-treat mean proportion of three trained-family posttest tasks passing every private target and control case, adjusted for corresponding pretest score and form order. Missing posttest tasks count as not passed; report available-case sensitivity and infrastructure failures separately.",
+  "exploratory": "Unpractised-family tasks, regression quality, explanation quality, wall-clock time, hint requests, model fallbacks and action distributions. Do not call unpractised tasks proven far transfer.",
+  "scoring": {
+    "targetCases": 50,
+    "controlCases": 20,
+    "novelValidRegression": 10,
+    "humanDiagnosis": 20,
+    "automaticMaximum": 80,
+    "humanRubric": {
+      "causalDiagnosis": 10,
+      "executionEvidence": 5,
+      "falsifiableAlternative": 5
+    }
+  },
+  "timeBudgetMinutes": {
+    "pretestPerTask": 12,
+    "practicePerTask": 15,
+    "posttestPerTask": 12
+  },
+  "analysis": "Do not infer learner effects from model decisions, reference repairs or simulated learner records. Freeze sample size and analysis before recruitment after feasibility and power planning; no sample size or positive effect is assumed here. Report arm counts, attrition, intervals, fallback rate and form effects. Preserve randomized arm for intention-to-treat analysis.",
+  "contamination": "Original synthetic assessment tasks authored for this development run, excluded from mentor prompts and public practice catalog. Designers and code reviewers can inspect answers; generic mechanisms may be known to models. Publishing source exposes the bank. Held out from practice/prompt tuning does not mean guaranteed unseen, private forever or tamper-proof.",
+  "privacy": "Assessment UI keeps source, reasoning and exports on the learner device. Offline grading is operator-run. No learner telemetry, recruitment messages or real outcome dataset is created by this milestone.",
+  "integrity": "Same-origin mentor calls are blocked during an active assessment, including relabelled task IDs. External tools, edited exports, other browser profiles and operator access cannot be ruled out; unaided work remains a protocol requirement, not identity verification. Offline grader compares values outside the candidate container and does not trust candidate pass claims."
+}

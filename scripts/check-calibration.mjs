@@ -1,0 +1,3 @@
+import {readFile,writeFile} from 'node:fs/promises';import {calibrationReport} from '../pilot/calibration.mjs';
+const args=process.argv.slice(2),get=key=>{const i=args.indexOf(key);return i<0?null:args[i+1]};
+try{if(!get('--records')||!get('--grades'))throw Error('Use --records observations.json --grades grades.json');const result=await calibrationReport(JSON.parse(await readFile(get('--records'),'utf8')),JSON.parse(await readFile(get('--grades'),'utf8')));if(get('--out'))await writeFile(get('--out'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));}catch(error){console.error(error.message);process.exitCode=1}

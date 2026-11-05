@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "id": "debounce-rejection",
+  "version": 1,
+  "kind": "Historical public repository bug",
+  "repository": "https://github.com/sindresorhus/p-debounce",
+  "issueOrPullRequest": "https://github.com/sindresorhus/p-debounce/pull/33",
+  "baselineCommit": "8964dd202004f49d7b814c0292b064287b70f2d8",
+  "fixCommit": "a14c7ac6817248b8db13eb0d30474c1f82588fe6",
+  "sourcePath": "index.js",
+  "testPath": "test.js",
+  "license": "MIT",
+  "copyright": "Copyright (c) Sindre Sorhus",
+  "licensePath": "baseline/license",
+  "testProvenance": "Browser recipes adapt upstream falsy-rejection and queued-call tests; the concurrency/recovery summary adds explicit control observations. Docker selects the seven upstream tests whose names match .promise() preserves. This is not the whole test suite, lint or type checks.",
+  "transformations": [
+    "Complete upstream source and baseline non-dot tracked files preserved without source edits.",
+    "Browser uses native ES modules plus explicit promise callback recipes.",
+    "Docker runs the unmodified fix-commit test.js with a test-name filter. No dependency install, lint or type check."
+  ],
+  "contamination": "Public historical fix and tests. Practice only; not a hidden or contamination-free transfer assessment.",
+  "runtime": {
+    "image": "node@sha256:bc0a2afd3b74ce12222fc8bab99271e66257f021078f5f4a5d687a77d280c1d9",
+    "tagAtVerification": "node:26.13.0-bookworm-slim",
+    "platform": "linux/arm64",
+    "command": [
+      "node",
+      "--test",
+      "--test-reporter=tap",
+      "--test-name-pattern=\\.promise\\(\\) preserves",
+      "test.js"
+    ],
+    "network": "none",
+    "readOnly": true,
+    "user": "65534:65534",
+    "memoryMB": 256,
+    "cpus": 1,
+    "pidsLimit": 64,
+    "deadlineSeconds": 15,
+    "outputLimitBytes": 131072
+  },
+  "replay": {
+    "sourcePath": "index.js",
+    "files": [
+      {
+        "from": "baseline/package.json",
+        "to": "package.json"
+      },
+      {
+        "from": "baseline/license",
+        "to": "LICENSE"
+      },
+      {
+        "from": "baseline/readme.md",
+        "to": "README.md"
+      },
+      {
+        "from": "reference/test.js",
+        "to": "test.js"
+      }
+    ],
+    "command": [
+      "--test",
+      "--test-reporter=tap",
+      "--test-name-pattern=\\.promise\\(\\) preserves",
+      "test.js"
+    ],
+    "expectedBaselineFailures": 7,
+    "suite": "Seven unmodified upstream regression tests selected by name"
+  },
+  "sha256": {
+    "baseline/index.d.ts": "ccc0a7978569ded3476c51ba5c916ed1f167563299fe02f1913b2f55e3093d10",
+    "baseline/index.js": "18a7a6a1ecba326f27480d2d55212c1d202b2a81ca96687d209b271cab012a6a",
+    "baseline/index.test-d.ts": "8a484f6de76033d9752dc89de93534875c111a866c6e8d174ba743af33d19fb2",
+    "baseline/license": "5c932d88256b4ab958f64a856fa48e8bd1f55bc1d96b8149c65689e0c61789d3",
+    "baseline/package.json": "6721ecd2bee87b1f5de30b610c02a9f0e01b06e88605f4a9c8efa0dff5622177",
+    "baseline/readme.md": "60ab50d68ec211954a97c54d17e28e959152edbc3cf25e9c87eaff4fffe70bf5",
+    "baseline/test.js": "2c371b0dc79101b0740a23eb68016c41a884b3e554fe94b61a9d6393a6335bf8",
+    "reference/index.js": "7a519eb4afed87d7b3c7eec0800c5379eae5ca53cf3e2ba325669ecf1338eeab",
+    "reference/test.js": "df6b02860887968ce049f878ff8195cfce5991ad7a9336149422c4468c38c684"
+  }
+}

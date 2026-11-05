@@ -1,0 +1,14 @@
+{
+  "version": "transfer-dev-v1",
+  "frozenAt": "2026-11-05T10:02:31.476Z",
+  "files": {
+    "protocol.json": "26ff6956e8a84e52fe391641456d175007f7e906ce0dd2bb86e8edf73e01ff35",
+    "tasks.mjs": "c862e7ef26cbef8535faec209964a39698fb48511400dae072957be58bc13e0a",
+    "grader.mjs": "33394b4c615f01d91c1eb05ddd52b0c6a61073122b010f1b8bcb24a310f29337",
+    "runtime.mjs": "34d942729e45c0c41c44305c2d558ff7f2fbb2406a92f2c2dfe7aa52361bca8a",
+    "../mentor/policy.mjs": "603a5f06ab2310e46c418fe9824766e416518aef1c5b6431451bf0097b99e480",
+    "../mentor/model.json": "6832b9478f204ecb335e5129d2d99bbbfab1a45d31db3e15421a1298401244a1"
+  },
+  "bankHash": "e1599fc54077317a17677e007785750fda2377127845cd3e402d96d5036758eb",
+  "scope": "Practice/prompt-excluded development assessment bank. Designer-visible; not guaranteed unseen or secure after source publication."
+}

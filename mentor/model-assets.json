@@ -1,0 +1,27 @@
+{
+  "model": "onnx-community/Qwen2.5-Coder-1.5B-Instruct",
+  "revision": "774cc908b6c2be23bc4e8d4e401e4f8b8fba7daf",
+  "weightsRedistributed": false,
+  "assets": {
+    "config.json": {
+      "sha256": "debf0b90deaf6cbcb066fc26e048d4f14414828114a206b09f263730b1ad7f3c",
+      "bytes": 948
+    },
+    "generation_config.json": {
+      "sha256": "0dc30d5b7f022dcbfaaef3e55340642208a3b0436214346caf1c522c009f699d",
+      "bytes": 242
+    },
+    "onnx/model_q4.onnx": {
+      "sha256": "3be13b6b30c1c152bd36e5a886a36800d404f56494c74e2fdf1d634d175372e1",
+      "bytes": 1915754790
+    },
+    "tokenizer.json": {
+      "sha256": "9c5ae00e602b8860cbd784ba82a8aa14e8feecec692e7076590d014d7b7fdafa",
+      "bytes": 11421896
+    },
+    "tokenizer_config.json": {
+      "sha256": "6a14243f0ae04884e597b3f032c05e15de9f417318fdcac24ab4e2680e691430",
+      "bytes": 7849
+    }
+  }
+}

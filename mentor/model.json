@@ -1,0 +1,11 @@
+{
+  "id": "onnx-community/Qwen2.5-Coder-1.5B-Instruct",
+  "revision": "774cc908b6c2be23bc4e8d4e401e4f8b8fba7daf",
+  "dtype": "q4",
+  "device": "cpu",
+  "license": "Apache-2.0",
+  "source": "https://huggingface.co/onnx-community/Qwen2.5-Coder-1.5B-Instruct",
+  "purpose": "Local bounded coaching-action planner; never a repair generator",
+  "maxNewTokens": 8,
+  "upstream": "https://huggingface.co/Qwen/Qwen2.5-Coder-1.5B-Instruct"
+}

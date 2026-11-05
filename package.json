@@ -1,0 +1,31 @@
+{
+  "name": "fixfirst",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "replay:repository": "node scripts/replay-repository.mjs",
+    "verify:runner": "node scripts/verify-runner.mjs",
+    "mentor:prepare": "node scripts/prepare-mentor.mjs",
+    "mentor:evaluate": "node scripts/evaluate-mentor.mjs",
+    "benchmark:freeze": "node scripts/benchmark-freeze.mjs",
+    "benchmark:verify": "node scripts/verify-benchmark.mjs",
+    "benchmark:grade": "node scripts/grade-benchmark.mjs",
+    "study:allocate": "node scripts/allocate-study.mjs",
+    "study:report": "node scripts/report-study.mjs",
+    "dev:baseline": "FIXFIRST_COACH_MODE=guided-baseline PORT=4174 node server.mjs",
+    "study:compare-coaches": "node scripts/compare-coaches.mjs",
+    "pilot": "node scripts/pilot-server.mjs",
+    "pilot:check": "node scripts/check-calibration.mjs",
+    "pilot:preflight": "node scripts/pilot-preflight.mjs",
+    "pilot:collect": "node scripts/collect-calibration.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "4.3.2"
+  }
+}

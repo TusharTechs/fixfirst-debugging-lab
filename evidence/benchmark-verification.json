@@ -1,0 +1,903 @@
+{
+  "kind": "benchmark-technical-verification",
+  "at": "2026-11-05T10:38:41.631Z",
+  "version": "transfer-dev-v1.2",
+  "bankHash": "f685fed398bfeb465d3e8ee768937a4c9e3ab0b37d5e2a0dcdc19d7eacd885fe",
+  "notLearnerData": true,
+  "tasks": [
+    {
+      "taskId": "assess-envelope",
+      "baseline": {
+        "taskId": "assess-envelope",
+        "form": "A",
+        "family": "parsing",
+        "exploratory": false,
+        "version": "transfer-dev-v1.2",
+        "bankHash": "f685fed398bfeb465d3e8ee768937a4c9e3ab0b37d5e2a0dcdc19d7eacd885fe",
+        "sourceHash": "becd5400d8811cc84dc57c9a3070203a7f40f9307c8cbf7ac009e2dc0a21232a",
+        "allBehaviourPassed": false,
+        "automaticScore": 20,
+        "automaticMaximum": 80,
+        "scores": {
+          "targetCases": 0,
+          "controlCases": 20,
+          "novelValidRegression": 0,
+          "humanDiagnosis": null
+        },
+        "cases": [
+          {
+            "case": "case-0",
+            "kind": "target",
+            "passed": false
+          },
+          {
+            "case": "case-1",
+            "kind": "target",
+            "passed": false
+          },
+          {
+            "case": "case-2",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-3",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-4",
+            "kind": "control",
+            "passed": true
+          }
+        ],
+        "regression": {
+          "provided": false,
+          "novel": false,
+          "valid": false
+        },
+        "error": null,
+        "diagnosisStatus": "Requires blinded human review; no automatic diagnosis score",
+        "integrity": "Host compares actual values; no candidate-provided pass claims are trusted. This does not establish identity or unaided work."
+      },
+      "reference": {
+        "taskId": "assess-envelope",
+        "form": "A",
+        "family": "parsing",
+        "exploratory": false,
+        "version": "transfer-dev-v1.2",
+        "bankHash": "f685fed398bfeb465d3e8ee768937a4c9e3ab0b37d5e2a0dcdc19d7eacd885fe",
+        "sourceHash": "3c299971efa8efc4be8258ad2cb6a2a31c0d9f9b65f598692ee2c000698b92ce",
+        "allBehaviourPassed": true,
+        "automaticScore": 80,
+        "automaticMaximum": 80,
+        "scores": {
+          "targetCases": 50,
+          "controlCases": 20,
+          "novelValidRegression": 10,
+          "humanDiagnosis": null
+        },
+        "cases": [
+          {
+            "case": "case-0",
+            "kind": "target",
+            "passed": true
+          },
+          {
+            "case": "case-1",
+            "kind": "target",
+            "passed": true
+          },
+          {
+            "case": "case-2",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-3",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-4",
+            "kind": "control",
+            "passed": true
+          }
+        ],
+        "regression": {
+          "provided": true,
+          "novel": true,
+          "valid": true
+        },
+        "error": null,
+        "diagnosisStatus": "Requires blinded human review; no automatic diagnosis score",
+        "integrity": "Host compares actual values; no candidate-provided pass claims are trusted. This does not establish identity or unaided work."
+      }
+    },
+    {
+      "taskId": "assess-settlements",
+      "baseline": {
+        "taskId": "assess-settlements",
+        "form": "A",
+        "family": "async-state",
+        "exploratory": false,
+        "version": "transfer-dev-v1.2",
+        "bankHash": "f685fed398bfeb465d3e8ee768937a4c9e3ab0b37d5e2a0dcdc19d7eacd885fe",
+        "sourceHash": "e5adedfdc8da7be65ef78220fd044b33fd2ec855e65a1fb597c1bf45779fe312",
+        "allBehaviourPassed": false,
+        "automaticScore": 20,
+        "automaticMaximum": 80,
+        "scores": {
+          "targetCases": 0,
+          "controlCases": 20,
+          "novelValidRegression": 0,
+          "humanDiagnosis": null
+        },
+        "cases": [
+          {
+            "case": "case-0",
+            "kind": "target",
+            "passed": false
+          },
+          {
+            "case": "case-1",
+            "kind": "target",
+            "passed": false
+          },
+          {
+            "case": "case-2",
+            "kind": "target",
+            "passed": false
+          },
+          {
+            "case": "case-3",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-4",
+            "kind": "control",
+            "passed": true
+          }
+        ],
+        "regression": {
+          "provided": false,
+          "novel": false,
+          "valid": false
+        },
+        "error": null,
+        "diagnosisStatus": "Requires blinded human review; no automatic diagnosis score",
+        "integrity": "Host compares actual values; no candidate-provided pass claims are trusted. This does not establish identity or unaided work."
+      },
+      "reference": {
+        "taskId": "assess-settlements",
+        "form": "A",
+        "family": "async-state",
+        "exploratory": false,
+        "version": "transfer-dev-v1.2",
+        "bankHash": "f685fed398bfeb465d3e8ee768937a4c9e3ab0b37d5e2a0dcdc19d7eacd885fe",
+        "sourceHash": "c9e886469bd92139b5b2b8cd72840fd89470001f655877a471268c9c06890dcf",
+        "allBehaviourPassed": true,
+        "automaticScore": 80,
+        "automaticMaximum": 80,
+        "scores": {
+          "targetCases": 50,
+          "controlCases": 20,
+          "novelValidRegression": 10,
+          "humanDiagnosis": null
+        },
+        "cases": [
+          {
+            "case": "case-0",
+            "kind": "target",
+            "passed": true
+          },
+          {
+            "case": "case-1",
+            "kind": "target",
+            "passed": true
+          },
+          {
+            "case": "case-2",
+            "kind": "target",
+            "passed": true
+          },
+          {
+            "case": "case-3",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-4",
+            "kind": "control",
+            "passed": true
+          }
+        ],
+        "regression": {
+          "provided": true,
+          "novel": true,
+          "valid": true
+        },
+        "error": null,
+        "diagnosisStatus": "Requires blinded human review; no automatic diagnosis score",
+        "integrity": "Host compares actual values; no candidate-provided pass claims are trusted. This does not establish identity or unaided work."
+      }
+    },
+    {
+      "taskId": "assess-dependency-loop",
+      "baseline": {
+        "taskId": "assess-dependency-loop",
+        "form": "A",
+        "family": "graph-state",
+        "exploratory": false,
+        "version": "transfer-dev-v1.2",
+        "bankHash": "f685fed398bfeb465d3e8ee768937a4c9e3ab0b37d5e2a0dcdc19d7eacd885fe",
+        "sourceHash": "b7bb1b39874d0f89fbb086953ea44a3ea5b6b76dbaaa436250b7b211ad3b0546",
+        "allBehaviourPassed": false,
+        "automaticScore": 20,
+        "automaticMaximum": 80,
+        "scores": {
+          "targetCases": 0,
+          "controlCases": 20,
+          "novelValidRegression": 0,
+          "humanDiagnosis": null
+        },
+        "cases": [
+          {
+            "case": "case-0",
+            "kind": "target",
+            "passed": false
+          },
+          {
+            "case": "case-1",
+            "kind": "target",
+            "passed": false
+          },
+          {
+            "case": "case-2",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-3",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-4",
+            "kind": "control",
+            "passed": true
+          }
+        ],
+        "regression": {
+          "provided": false,
+          "novel": false,
+          "valid": false
+        },
+        "error": null,
+        "diagnosisStatus": "Requires blinded human review; no automatic diagnosis score",
+        "integrity": "Host compares actual values; no candidate-provided pass claims are trusted. This does not establish identity or unaided work."
+      },
+      "reference": {
+        "taskId": "assess-dependency-loop",
+        "form": "A",
+        "family": "graph-state",
+        "exploratory": false,
+        "version": "transfer-dev-v1.2",
+        "bankHash": "f685fed398bfeb465d3e8ee768937a4c9e3ab0b37d5e2a0dcdc19d7eacd885fe",
+        "sourceHash": "5b08694fcf76f3952c6f03fbb20c525e4e5a5b3e97661a76ffc214b178b1432d",
+        "allBehaviourPassed": true,
+        "automaticScore": 80,
+        "automaticMaximum": 80,
+        "scores": {
+          "targetCases": 50,
+          "controlCases": 20,
+          "novelValidRegression": 10,
+          "humanDiagnosis": null
+        },
+        "cases": [
+          {
+            "case": "case-0",
+            "kind": "target",
+            "passed": true
+          },
+          {
+            "case": "case-1",
+            "kind": "target",
+            "passed": true
+          },
+          {
+            "case": "case-2",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-3",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-4",
+            "kind": "control",
+            "passed": true
+          }
+        ],
+        "regression": {
+          "provided": true,
+          "novel": true,
+          "valid": true
+        },
+        "error": null,
+        "diagnosisStatus": "Requires blinded human review; no automatic diagnosis score",
+        "integrity": "Host compares actual values; no candidate-provided pass claims are trusted. This does not establish identity or unaided work."
+      }
+    },
+    {
+      "taskId": "assess-manifest-line",
+      "baseline": {
+        "taskId": "assess-manifest-line",
+        "form": "B",
+        "family": "parsing",
+        "exploratory": false,
+        "version": "transfer-dev-v1.2",
+        "bankHash": "f685fed398bfeb465d3e8ee768937a4c9e3ab0b37d5e2a0dcdc19d7eacd885fe",
+        "sourceHash": "a14b394b5ef502d0f6e296b6efa0541c602591f11237df30071285fdcbd69af4",
+        "allBehaviourPassed": false,
+        "automaticScore": 20,
+        "automaticMaximum": 80,
+        "scores": {
+          "targetCases": 0,
+          "controlCases": 20,
+          "novelValidRegression": 0,
+          "humanDiagnosis": null
+        },
+        "cases": [
+          {
+            "case": "case-0",
+            "kind": "target",
+            "passed": false
+          },
+          {
+            "case": "case-1",
+            "kind": "target",
+            "passed": false
+          },
+          {
+            "case": "case-2",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-3",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-4",
+            "kind": "control",
+            "passed": true
+          }
+        ],
+        "regression": {
+          "provided": false,
+          "novel": false,
+          "valid": false
+        },
+        "error": null,
+        "diagnosisStatus": "Requires blinded human review; no automatic diagnosis score",
+        "integrity": "Host compares actual values; no candidate-provided pass claims are trusted. This does not establish identity or unaided work."
+      },
+      "reference": {
+        "taskId": "assess-manifest-line",
+        "form": "B",
+        "family": "parsing",
+        "exploratory": false,
+        "version": "transfer-dev-v1.2",
+        "bankHash": "f685fed398bfeb465d3e8ee768937a4c9e3ab0b37d5e2a0dcdc19d7eacd885fe",
+        "sourceHash": "9410b278e7fcd5f612133f3ca1eb129a238dce425a70c97b5134b2539f0f16b3",
+        "allBehaviourPassed": true,
+        "automaticScore": 80,
+        "automaticMaximum": 80,
+        "scores": {
+          "targetCases": 50,
+          "controlCases": 20,
+          "novelValidRegression": 10,
+          "humanDiagnosis": null
+        },
+        "cases": [
+          {
+            "case": "case-0",
+            "kind": "target",
+            "passed": true
+          },
+          {
+            "case": "case-1",
+            "kind": "target",
+            "passed": true
+          },
+          {
+            "case": "case-2",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-3",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-4",
+            "kind": "control",
+            "passed": true
+          }
+        ],
+        "regression": {
+          "provided": true,
+          "novel": true,
+          "valid": true
+        },
+        "error": null,
+        "diagnosisStatus": "Requires blinded human review; no automatic diagnosis score",
+        "integrity": "Host compares actual values; no candidate-provided pass claims are trusted. This does not establish identity or unaided work."
+      }
+    },
+    {
+      "taskId": "assess-failure-ledger",
+      "baseline": {
+        "taskId": "assess-failure-ledger",
+        "form": "B",
+        "family": "async-state",
+        "exploratory": false,
+        "version": "transfer-dev-v1.2",
+        "bankHash": "f685fed398bfeb465d3e8ee768937a4c9e3ab0b37d5e2a0dcdc19d7eacd885fe",
+        "sourceHash": "24b5e85f9fc03d2409564c031fdee40ee59823b9b8173b943047f78b009e042f",
+        "allBehaviourPassed": false,
+        "automaticScore": 20,
+        "automaticMaximum": 80,
+        "scores": {
+          "targetCases": 0,
+          "controlCases": 20,
+          "novelValidRegression": 0,
+          "humanDiagnosis": null
+        },
+        "cases": [
+          {
+            "case": "case-0",
+            "kind": "target",
+            "passed": false
+          },
+          {
+            "case": "case-1",
+            "kind": "target",
+            "passed": false
+          },
+          {
+            "case": "case-2",
+            "kind": "target",
+            "passed": false
+          },
+          {
+            "case": "case-3",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-4",
+            "kind": "control",
+            "passed": true
+          }
+        ],
+        "regression": {
+          "provided": false,
+          "novel": false,
+          "valid": false
+        },
+        "error": null,
+        "diagnosisStatus": "Requires blinded human review; no automatic diagnosis score",
+        "integrity": "Host compares actual values; no candidate-provided pass claims are trusted. This does not establish identity or unaided work."
+      },
+      "reference": {
+        "taskId": "assess-failure-ledger",
+        "form": "B",
+        "family": "async-state",
+        "exploratory": false,
+        "version": "transfer-dev-v1.2",
+        "bankHash": "f685fed398bfeb465d3e8ee768937a4c9e3ab0b37d5e2a0dcdc19d7eacd885fe",
+        "sourceHash": "5b57de59d6f530418625917f8375dd18ce67e8f57b3638709b3ab55f97eb328c",
+        "allBehaviourPassed": true,
+        "automaticScore": 80,
+        "automaticMaximum": 80,
+        "scores": {
+          "targetCases": 50,
+          "controlCases": 20,
+          "novelValidRegression": 10,
+          "humanDiagnosis": null
+        },
+        "cases": [
+          {
+            "case": "case-0",
+            "kind": "target",
+            "passed": true
+          },
+          {
+            "case": "case-1",
+            "kind": "target",
+            "passed": true
+          },
+          {
+            "case": "case-2",
+            "kind": "target",
+            "passed": true
+          },
+          {
+            "case": "case-3",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-4",
+            "kind": "control",
+            "passed": true
+          }
+        ],
+        "regression": {
+          "provided": true,
+          "novel": true,
+          "valid": true
+        },
+        "error": null,
+        "diagnosisStatus": "Requires blinded human review; no automatic diagnosis score",
+        "integrity": "Host compares actual values; no candidate-provided pass claims are trusted. This does not establish identity or unaided work."
+      }
+    },
+    {
+      "taskId": "assess-route-loop",
+      "baseline": {
+        "taskId": "assess-route-loop",
+        "form": "B",
+        "family": "graph-state",
+        "exploratory": false,
+        "version": "transfer-dev-v1.2",
+        "bankHash": "f685fed398bfeb465d3e8ee768937a4c9e3ab0b37d5e2a0dcdc19d7eacd885fe",
+        "sourceHash": "0a022363b4cb5997fe9f5465a2e5c5baa8755f9e36e9c10e5f6158691af10f2c",
+        "allBehaviourPassed": false,
+        "automaticScore": 20,
+        "automaticMaximum": 80,
+        "scores": {
+          "targetCases": 0,
+          "controlCases": 20,
+          "novelValidRegression": 0,
+          "humanDiagnosis": null
+        },
+        "cases": [
+          {
+            "case": "case-0",
+            "kind": "target",
+            "passed": false
+          },
+          {
+            "case": "case-1",
+            "kind": "target",
+            "passed": false
+          },
+          {
+            "case": "case-2",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-3",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-4",
+            "kind": "control",
+            "passed": true
+          }
+        ],
+        "regression": {
+          "provided": false,
+          "novel": false,
+          "valid": false
+        },
+        "error": null,
+        "diagnosisStatus": "Requires blinded human review; no automatic diagnosis score",
+        "integrity": "Host compares actual values; no candidate-provided pass claims are trusted. This does not establish identity or unaided work."
+      },
+      "reference": {
+        "taskId": "assess-route-loop",
+        "form": "B",
+        "family": "graph-state",
+        "exploratory": false,
+        "version": "transfer-dev-v1.2",
+        "bankHash": "f685fed398bfeb465d3e8ee768937a4c9e3ab0b37d5e2a0dcdc19d7eacd885fe",
+        "sourceHash": "3145be55292180de8b885cfcc4b203ddcbf70169630a5538d87d4c7f6effa67c",
+        "allBehaviourPassed": true,
+        "automaticScore": 80,
+        "automaticMaximum": 80,
+        "scores": {
+          "targetCases": 50,
+          "controlCases": 20,
+          "novelValidRegression": 10,
+          "humanDiagnosis": null
+        },
+        "cases": [
+          {
+            "case": "case-0",
+            "kind": "target",
+            "passed": true
+          },
+          {
+            "case": "case-1",
+            "kind": "target",
+            "passed": true
+          },
+          {
+            "case": "case-2",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-3",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-4",
+            "kind": "control",
+            "passed": true
+          }
+        ],
+        "regression": {
+          "provided": true,
+          "novel": true,
+          "valid": true
+        },
+        "error": null,
+        "diagnosisStatus": "Requires blinded human review; no automatic diagnosis score",
+        "integrity": "Host compares actual values; no candidate-provided pass claims are trusted. This does not establish identity or unaided work."
+      }
+    },
+    {
+      "taskId": "assess-booking-edge",
+      "baseline": {
+        "taskId": "assess-booking-edge",
+        "form": "A",
+        "family": "intervals",
+        "exploratory": true,
+        "version": "transfer-dev-v1.2",
+        "bankHash": "f685fed398bfeb465d3e8ee768937a4c9e3ab0b37d5e2a0dcdc19d7eacd885fe",
+        "sourceHash": "e00872a587dd15fe525cc52fdf27a76847e45a3898ce606f79e5bcb776ded07a",
+        "allBehaviourPassed": false,
+        "automaticScore": 20,
+        "automaticMaximum": 80,
+        "scores": {
+          "targetCases": 0,
+          "controlCases": 20,
+          "novelValidRegression": 0,
+          "humanDiagnosis": null
+        },
+        "cases": [
+          {
+            "case": "case-0",
+            "kind": "target",
+            "passed": false
+          },
+          {
+            "case": "case-1",
+            "kind": "target",
+            "passed": false
+          },
+          {
+            "case": "case-2",
+            "kind": "target",
+            "passed": false
+          },
+          {
+            "case": "case-3",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-4",
+            "kind": "control",
+            "passed": true
+          }
+        ],
+        "regression": {
+          "provided": false,
+          "novel": false,
+          "valid": false
+        },
+        "error": null,
+        "diagnosisStatus": "Requires blinded human review; no automatic diagnosis score",
+        "integrity": "Host compares actual values; no candidate-provided pass claims are trusted. This does not establish identity or unaided work."
+      },
+      "reference": {
+        "taskId": "assess-booking-edge",
+        "form": "A",
+        "family": "intervals",
+        "exploratory": true,
+        "version": "transfer-dev-v1.2",
+        "bankHash": "f685fed398bfeb465d3e8ee768937a4c9e3ab0b37d5e2a0dcdc19d7eacd885fe",
+        "sourceHash": "93c356ddea3ab5c1d1eef94f1753f1ad11289d97d164be217297cbfb172e3f28",
+        "allBehaviourPassed": true,
+        "automaticScore": 80,
+        "automaticMaximum": 80,
+        "scores": {
+          "targetCases": 50,
+          "controlCases": 20,
+          "novelValidRegression": 10,
+          "humanDiagnosis": null
+        },
+        "cases": [
+          {
+            "case": "case-0",
+            "kind": "target",
+            "passed": true
+          },
+          {
+            "case": "case-1",
+            "kind": "target",
+            "passed": true
+          },
+          {
+            "case": "case-2",
+            "kind": "target",
+            "passed": true
+          },
+          {
+            "case": "case-3",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-4",
+            "kind": "control",
+            "passed": true
+          }
+        ],
+        "regression": {
+          "provided": true,
+          "novel": true,
+          "valid": true
+        },
+        "error": null,
+        "diagnosisStatus": "Requires blinded human review; no automatic diagnosis score",
+        "integrity": "Host compares actual values; no candidate-provided pass claims are trusted. This does not establish identity or unaided work."
+      }
+    },
+    {
+      "taskId": "assess-cursor-page",
+      "baseline": {
+        "taskId": "assess-cursor-page",
+        "form": "B",
+        "family": "pagination",
+        "exploratory": true,
+        "version": "transfer-dev-v1.2",
+        "bankHash": "f685fed398bfeb465d3e8ee768937a4c9e3ab0b37d5e2a0dcdc19d7eacd885fe",
+        "sourceHash": "87d5d014215b239d4d58d438c37b3f4e672f8eb348146cfb6aa0f8ae12666e77",
+        "allBehaviourPassed": false,
+        "automaticScore": 20,
+        "automaticMaximum": 80,
+        "scores": {
+          "targetCases": 0,
+          "controlCases": 20,
+          "novelValidRegression": 0,
+          "humanDiagnosis": null
+        },
+        "cases": [
+          {
+            "case": "case-0",
+            "kind": "target",
+            "passed": false
+          },
+          {
+            "case": "case-1",
+            "kind": "target",
+            "passed": false
+          },
+          {
+            "case": "case-2",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-3",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-4",
+            "kind": "control",
+            "passed": true
+          }
+        ],
+        "regression": {
+          "provided": false,
+          "novel": false,
+          "valid": false
+        },
+        "error": null,
+        "diagnosisStatus": "Requires blinded human review; no automatic diagnosis score",
+        "integrity": "Host compares actual values; no candidate-provided pass claims are trusted. This does not establish identity or unaided work."
+      },
+      "reference": {
+        "taskId": "assess-cursor-page",
+        "form": "B",
+        "family": "pagination",
+        "exploratory": true,
+        "version": "transfer-dev-v1.2",
+        "bankHash": "f685fed398bfeb465d3e8ee768937a4c9e3ab0b37d5e2a0dcdc19d7eacd885fe",
+        "sourceHash": "6fdb4ca43d8d89cb0e19a21c94ed0005d087ee8e847a4eb0d9b67255d9dd0692",
+        "allBehaviourPassed": true,
+        "automaticScore": 80,
+        "automaticMaximum": 80,
+        "scores": {
+          "targetCases": 50,
+          "controlCases": 20,
+          "novelValidRegression": 10,
+          "humanDiagnosis": null
+        },
+        "cases": [
+          {
+            "case": "case-0",
+            "kind": "target",
+            "passed": true
+          },
+          {
+            "case": "case-1",
+            "kind": "target",
+            "passed": true
+          },
+          {
+            "case": "case-2",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-3",
+            "kind": "control",
+            "passed": true
+          },
+          {
+            "case": "case-4",
+            "kind": "control",
+            "passed": true
+          }
+        ],
+        "regression": {
+          "provided": true,
+          "novel": true,
+          "valid": true
+        },
+        "error": null,
+        "diagnosisStatus": "Requires blinded human review; no automatic diagnosis score",
+        "integrity": "Host compares actual values; no candidate-provided pass claims are trusted. This does not establish identity or unaided work."
+      }
+    }
+  ],
+  "adversarial": [
+    {
+      "name": "fake pass claim",
+      "error": "invalid-protocol"
+    },
+    {
+      "name": "syntax error",
+      "error": "Unable to load candidate: Unexpected end of input"
+    },
+    {
+      "name": "infinite loop",
+      "error": "timeout"
+    },
+    {
+      "name": "noisy output",
+      "error": "output-limit"
+    },
+    {
+      "name": "Copied visible example earns no regression credit",
+      "passed": true
+    }
+  ]
+}

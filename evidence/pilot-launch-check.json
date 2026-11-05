@@ -1,0 +1,35 @@
+{
+  "kind": "pilot-launch-technical-check",
+  "at": "2026-11-05T11:53:50.443Z",
+  "version": "transfer-dev-v1.2",
+  "bankHash": "f685fed398bfeb465d3e8ee768937a4c9e3ab0b37d5e2a0dcdc19d7eacd885fe",
+  "policyHash": "03b01d6d4870f0ab61810a89da204f513e05484f5d8eac422c5fe55f6bd0ed8b",
+  "configMatchesLocalFreeze": true,
+  "checks": [
+    {
+      "form": "A",
+      "consentInitiallyUnchecked": true,
+      "humanStartInitiallyDisabled": true,
+      "demoExcluded": true,
+      "taskCount": 4,
+      "assessmentLinkCorrect": true,
+      "coachingBlockedDuringAssessment": true,
+      "endedWithoutExport": true,
+      "pageErrors": []
+    },
+    {
+      "form": "B",
+      "consentInitiallyUnchecked": true,
+      "humanStartInitiallyDisabled": true,
+      "demoExcluded": true,
+      "taskCount": 4,
+      "assessmentLinkCorrect": true,
+      "coachingBlockedDuringAssessment": true,
+      "endedWithoutExport": true,
+      "pageErrors": []
+    }
+  ],
+  "passed": true,
+  "realParticipants": 0,
+  "disclosure": "Automated technical demos only. No human consent, observation export, enrollment, recruitment or learning outcome was created."
+}

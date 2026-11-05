@@ -1,0 +1,5 @@
+FROM python:3.12-slim
+RUN pip install --no-cache-dir quickjs-ng==0.17.0.2 cryptography==50.0.2
+WORKDIR /app
+COPY sandbox.py grading.py bank.json test_grading.py auth.py service-public.pem test_auth.py ./
+CMD ["sh","-c","python test_auth.py && python test_grading.py"]

@@ -1,0 +1,4 @@
+import {readFile,writeFile}from'node:fs/promises';
+const root=new URL('../',import.meta.url);const read=file=>readFile(new URL(file,root),'utf8');const data=async file=>JSON.parse(await read(file));
+const routes=await data('source/routes.json'),assets={};for(const[path,file]of Object.entries(routes))assets[path]=await read('source/public/'+file);
+await writeFile(new URL('worker/index.js',root),'// Generated public Worker; no secrets or assessment reference cases.\nconst tasks='+JSON.stringify(await data('source/practice.json'))+';\n'+await read('source/policy.js')+'\nconst assets='+JSON.stringify(assets)+';\nconst assessmentTasks='+JSON.stringify(await data('source/assessments.json'))+';\nconst calibration='+JSON.stringify(await data('source/calibration.json'))+';\n'+await read('remote-service.js')+'\n'+await read('worker-api.js'));

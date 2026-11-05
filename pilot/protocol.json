@@ -1,0 +1,16 @@
+{
+  "version": "calibration-pilot-v1",
+  "purpose": "Check task clarity, tooling and gross floor/ceiling problems before evaluating learning effects.",
+  "studyType": "form-calibration-only",
+  "participantInformationVersion": "pilot-info-v1",
+  "minimumIndependentAttemptsPerTask": 5,
+  "clarityReviewBelow": 4,
+  "floorFlagBelow": 0.2,
+  "ceilingFlagAbove": 0.85,
+  "formGapFlagAbove": 0.2,
+  "interpretation": "These are prospective developer-chosen triage defaults, not a powered sample-size recommendation, equivalence margin or validated educational standard. Even when coverage is met, human review is required; no automatic equivalence or learning-effect claim is produced.",
+  "inclusion": "Human calibration records only, explicit consent, matching bank hash, one form per participant, no known answer exposure and explicitly reported no assistance for a task. Excluded or incomplete records remain counted with reasons.",
+  "gradeUse": "Grades are operator-joined by random calibration code and form. Preview grades may support calibration but never become confirmatory learner outcomes. Missing grades are unknown, not failures. Missing or unattempted tasks are not treated as completed calibration attempts.",
+  "privacy": "Participant work stays on the device until voluntary manual export. No names, email addresses, employer, age or identity proof are requested from participants. Notes may contain free text and must be checked before sharing. Aggregated reports omit notes and source code.",
+  "notLearnerEffectData": true
+}

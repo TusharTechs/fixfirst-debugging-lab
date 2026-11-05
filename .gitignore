@@ -1,0 +1,16 @@
+node_modules/
+.model-cache/
+.runner-work/
+.pilot-data/
+test-results/
+playwright-report/
+.env
+.env.*
+!.env.example
+.DS_Store
+__pycache__/
+*.pyc
+pilot/local-config.json
+hosting/dist/
+
+.codenow/

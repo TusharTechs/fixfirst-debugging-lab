@@ -1,0 +1,219 @@
+[
+  {
+    "id": "assess-envelope",
+    "form": "A",
+    "family": "parsing",
+    "title": "Preserve the event payload",
+    "contract": "Split a string at its first \"::\". Return {topic,payload}. Preserve every later delimiter in payload. Without a delimiter, payload is empty. Empty topics/payloads are allowed.",
+    "file": "envelope.js",
+    "code": "export function solve(text) {\n  const [topic, payload = ''] = text.split('::');\n  return {topic, payload};\n}",
+    "entry": "solve",
+    "examples": [
+      {
+        "name": "Ordinary envelope",
+        "args": [
+          "audit::created"
+        ],
+        "expected": {
+          "topic": "audit",
+          "payload": "created"
+        }
+      }
+    ],
+    "exploratory": false,
+    "transfer": true
+  },
+  {
+    "id": "assess-settlements",
+    "form": "A",
+    "family": "async-state",
+    "title": "Do not turn a rejected job into success",
+    "contract": "Given JSON job outcomes {status:\"fulfilled\",value} or {status:\"rejected\",reason}, settle the corresponding promises. Return {successes, failures}; values retain input order within each group. Rejection reasons may be null, false, zero or empty strings.",
+    "file": "settlements.js",
+    "code": "export async function solve(jobs) {\n  const settled = await Promise.allSettled(jobs.map(j => j.status === 'rejected' ? Promise.reject(j.reason) : Promise.resolve(j.value)));\n  return {successes:settled.filter(j => !j.reason).map(j => j.value ?? null), failures:settled.filter(j => j.reason).map(j => j.reason)};\n}",
+    "entry": "solve",
+    "examples": [
+      {
+        "name": "One fulfilled job",
+        "args": [
+          [
+            {
+              "status": "fulfilled",
+              "value": 8
+            }
+          ]
+        ],
+        "expected": {
+          "successes": [
+            8
+          ],
+          "failures": []
+        }
+      }
+    ],
+    "exploratory": false,
+    "transfer": true
+  },
+  {
+    "id": "assess-dependency-loop",
+    "form": "A",
+    "family": "graph-state",
+    "title": "Detect dependency loops without rejecting reuse",
+    "contract": "Given an adjacency object whose keys are node names and values are dependency arrays, return true iff any directed cycle exists. A dependency referenced without its own key is a leaf. Reusing a dependency in a DAG is allowed.",
+    "file": "dependency-loop.js",
+    "code": "export function solve(graph) {\n  const seen = new Set();\n  function visit(node) {\n    if (seen.has(node)) return true;\n    seen.add(node);\n    return (graph[node] || []).some(visit);\n  }\n  return Object.keys(graph).some(visit);\n}",
+    "entry": "solve",
+    "examples": [
+      {
+        "name": "One independent node",
+        "args": [
+          {
+            "a": []
+          }
+        ],
+        "expected": false
+      }
+    ],
+    "exploratory": false,
+    "transfer": true
+  },
+  {
+    "id": "assess-manifest-line",
+    "form": "B",
+    "family": "parsing",
+    "title": "Read the value without losing its separator",
+    "contract": "Split a manifest line at the first \"=\" into {key,value}. Preserve later equals signs and all whitespace literally. Lines without \"=\" have an empty value.",
+    "file": "manifest-line.js",
+    "code": "export function solve(line) {\n  const [key, value = ''] = line.split('=');\n  return {key, value};\n}",
+    "entry": "solve",
+    "examples": [
+      {
+        "name": "Ordinary key/value",
+        "args": [
+          "mode=fast"
+        ],
+        "expected": {
+          "key": "mode",
+          "value": "fast"
+        }
+      }
+    ],
+    "exploratory": false,
+    "transfer": true
+  },
+  {
+    "id": "assess-failure-ledger",
+    "form": "B",
+    "family": "async-state",
+    "title": "Keep falsy failures in the rejection ledger",
+    "contract": "Given JSON operations {reject:boolean,payload}, execute resolve/reject promises accordingly. Return one record per operation: {state:\"ok\",value} or {state:\"failed\",reason}. Preserve falsy payloads and original order.",
+    "file": "failure-ledger.js",
+    "code": "export async function solve(operations) {\n  const results = await Promise.allSettled(operations.map(op => op.reject ? Promise.reject(op.payload) : Promise.resolve(op.payload)));\n  return results.map(r => r.reason ? {state:'failed',reason:r.reason} : {state:'ok',value:r.value ?? null});\n}",
+    "entry": "solve",
+    "examples": [
+      {
+        "name": "Ordinary resolved value",
+        "args": [
+          [
+            {
+              "reject": false,
+              "payload": "ready"
+            }
+          ]
+        ],
+        "expected": [
+          {
+            "state": "ok",
+            "value": "ready"
+          }
+        ]
+      }
+    ],
+    "exploratory": false,
+    "transfer": true
+  },
+  {
+    "id": "assess-route-loop",
+    "form": "B",
+    "family": "graph-state",
+    "title": "Distinguish route convergence from a loop",
+    "contract": "Given edges as [from,to] string pairs, return true iff they contain a directed cycle. Multiple routes can converge on the same destination. An empty edge list has no cycle.",
+    "file": "route-loop.js",
+    "code": "export function solve(edges) {\n  const graph = {};\n  for (const [a,b] of edges) (graph[a] ||= []).push(b);\n  const seen = new Set();\n  function visit(n) {\n    if (seen.has(n)) return true;\n    seen.add(n);\n    return (graph[n] || []).some(visit);\n  }\n  return Object.keys(graph).some(visit);\n}",
+    "entry": "solve",
+    "examples": [
+      {
+        "name": "Single route",
+        "args": [
+          [
+            [
+              "a",
+              "b"
+            ]
+          ]
+        ],
+        "expected": false
+      }
+    ],
+    "exploratory": false,
+    "transfer": true
+  },
+  {
+    "id": "assess-booking-edge",
+    "form": "A",
+    "family": "intervals",
+    "title": "Allow adjacent bookings",
+    "contract": "A booking and a slot are half-open integer intervals [start,end), with start <= end. Return true iff their intersection has positive duration. Empty and merely adjacent intervals do not overlap.",
+    "file": "booking-edge.js",
+    "code": "export function solve(booking, slot) {\n  return booking[0] <= slot[1] && slot[0] <= booking[1];\n}",
+    "entry": "solve",
+    "examples": [
+      {
+        "name": "Positive intersection",
+        "args": [
+          [
+            1,
+            5
+          ],
+          [
+            3,
+            7
+          ]
+        ],
+        "expected": true
+      }
+    ],
+    "exploratory": true,
+    "transfer": true
+  },
+  {
+    "id": "assess-cursor-page",
+    "form": "B",
+    "family": "pagination",
+    "title": "Do not restart on an unknown cursor",
+    "contract": "Given unique-string IDs, a cursor string or null, and a nonnegative integer limit, return up to limit IDs strictly after the cursor. Null means start. Unknown non-null cursors return an empty list.",
+    "file": "cursor-page.js",
+    "code": "export function solve(ids, cursor, limit) {\n  const start = cursor === null ? 0 : ids.indexOf(cursor) + 1;\n  return ids.slice(start,start + limit);\n}",
+    "entry": "solve",
+    "examples": [
+      {
+        "name": "Known cursor",
+        "args": [
+          [
+            "a",
+            "b",
+            "c"
+          ],
+          "a",
+          2
+        ],
+        "expected": [
+          "b",
+          "c"
+        ]
+      }
+    ],
+    "exploratory": true,
+    "transfer": true
+  }
+]

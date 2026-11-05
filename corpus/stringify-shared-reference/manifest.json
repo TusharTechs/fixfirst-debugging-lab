@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "id": "stringify-shared-reference",
+  "version": 1,
+  "kind": "Historical public repository bug",
+  "repository": "https://github.com/epoberezkin/fast-json-stable-stringify",
+  "issueOrPullRequest": "https://github.com/epoberezkin/fast-json-stable-stringify/commit/c26c700f0b1d078512d2eba0eb16d6e5110a5538",
+  "baselineCommit": "f70d44441a4a4161796e779952312b35ec336442",
+  "fixCommit": "c26c700f0b1d078512d2eba0eb16d6e5110a5538",
+  "sourcePath": "index.js",
+  "testPath": "test/nested.js",
+  "license": "MIT",
+  "copyright": "Historical json-stable-stringify source; package metadata credits James Halliday. The pinned MIT notice has no copyright line.",
+  "licensePath": "baseline/LICENSE",
+  "testProvenance": "Historical json-stable-stringify commit retained in the fast-json-stable-stringify fork. Shared-reference and cycle cases adapt upstream test/nested.js; extra boundary cases are labelled. Docker uses the eight-case FixFirst Node adapter, not the original Tape suite.",
+  "transformations": [
+    "Historical ancestor is named json-stable-stringify, not the modern fast-json-stable-stringify implementation. Fork lineage is disclosed.",
+    "Complete source preserved byte-for-byte, evaluated through CommonJS module/exports.",
+    "Built-in JSON satisfies the conditional jsonify fallback, so no polyfill is needed in this runtime. require() dependencies are not available in the browser.",
+    "Case recipes construct actual shared identities and cycles; JSON values alone cannot represent them.",
+    "Docker adapter ports selected assertions to node:test and adds labelled controls; the original upstream test file is preserved, not executed as a full Tape suite."
+  ],
+  "contamination": "Public historical fix and tests. Practice only; not a hidden or contamination-free transfer assessment.",
+  "runtime": {
+    "image": "node@sha256:bc0a2afd3b74ce12222fc8bab99271e66257f021078f5f4a5d687a77d280c1d9",
+    "tagAtVerification": "node:26.13.0-bookworm-slim",
+    "platform": "linux/arm64",
+    "command": [
+      "node",
+      "--test",
+      "--test-reporter=tap",
+      "replay.mjs"
+    ],
+    "network": "none",
+    "readOnly": true,
+    "user": "65534:65534",
+    "memoryMB": 256,
+    "cpus": 1,
+    "pidsLimit": 64,
+    "deadlineSeconds": 15,
+    "outputLimitBytes": 131072
+  },
+  "replay": {
+    "sourcePath": "index.js",
+    "files": [
+      {
+        "from": "baseline/package.json",
+        "to": "package.json"
+      },
+      {
+        "from": "baseline/LICENSE",
+        "to": "LICENSE"
+      },
+      {
+        "from": "baseline/readme.markdown",
+        "to": "README.md"
+      },
+      {
+        "from": "adapter/replay.mjs",
+        "to": "replay.mjs"
+      },
+      {
+        "from": "adapter/cases.json",
+        "to": "cases.json"
+      },
+      {
+        "from": "adapter/scenarios.mjs",
+        "to": "scenarios.mjs"
+      }
+    ],
+    "command": [
+      "--test",
+      "--test-reporter=tap",
+      "replay.mjs"
+    ],
+    "expectedBaselineFailures": 3,
+    "suite": "Eight-case FixFirst adapter based on selected upstream assertions plus controls"
+  },
+  "sha256": {
+    "baseline/LICENSE": "435a6722c786b0a56fbe7387028f1d9d3f3a2d0fb615bb8fee118727c3f59b7b",
+    "baseline/example/key_cmp.js": "8bfb1825ceaa31e04eb55d48796bd1ebb599d61921f9ed632238482258c2ade3",
+    "baseline/example/nested.js": "2407719be20d1f8e84d0eb52019a850e3e97d0bad79d1e21c215d5ba9fb8031e",
+    "baseline/example/str.js": "7b78227c48a3373d053728a6fa70b5eca194e2121ade3410b44623c45ce77d89",
+    "baseline/example/value_cmp.js": "a90e841d945d9d1cb9ee27705e95f242f7c7cfc05924fec35fa0bc9db4743130",
+    "baseline/index.js": "0fb35a4d522c4de2c4b572ee8dfffa42911b72e3de7b3e22b43608039371ecd5",
+    "baseline/package.json": "6160d8504485545986968571acefb9493c644c54950a40fd789830e3ac73a309",
+    "baseline/readme.markdown": "7bf1c087ca8cc4d1266593f3730489cb2dee71c459dd3fb01d2e6fbc1052c40b",
+    "baseline/test/cmp.js": "cc780fcd3353f3fe4e851f66feb7598e1de3eff2be4dc5b2dab3e97e1c141980",
+    "baseline/test/nested.js": "90acc89860394b3e080c5407312d93bd267fba92f79c4ae00b696b0f949ef9a8",
+    "baseline/test/replacer.js": "8bcf0499deba412096831426b52c2e0037c220f5689c8cb54b2a8c035df5ea20",
+    "baseline/test/space.js": "c56c2f2536b052db9abaeca53f6d4c66244a9f694cfcb573d86c3f9701e29ed7",
+    "baseline/test/str.js": "ad1d0baccaf13bdc46ae21f1e48b8a5b70cd8f5b564cf0aaaf81992bd1250592",
+    "baseline/test/to-json.js": "ebfe070bd31b66bf556526c90640e1880a9cd12549946f2dc140917daa84c222",
+    "reference/index.js": "1aea6310373d9fd37d67f0d63f5b33940fb872305f10e6b7a04717a02da7c792",
+    "reference/test/nested.js": "bf5a60193af0a557c9e5d04f76a04ecac81b976c08a423c09575799e1ffc91a1",
+    "adapter/scenarios.mjs": "a5e8b66e174487ad3f38b2d869bf5dec51b9348385f6b85af9fdabdebb5275c7",
+    "adapter/cases.json": "397d0cead27a572b0e2812b683c1b9feb509168e7bf2f671f1c1f7abfc78d6aa",
+    "adapter/replay.mjs": "40d72b289008fe85233a597e3a095ec5046b01782418acf945165bd52e240164"
+  }
+}

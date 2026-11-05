@@ -1,0 +1,24 @@
+{
+  "version": "transfer-dev-v1.1",
+  "frozenAt": "2026-11-05T10:11:47.745Z",
+  "files": {
+    "protocol.json": "f0ef7dbfd52e403443ca3c39293f8cea07c1ddd968ea61ae2fa012b7c5b25eed",
+    "tasks.mjs": "c862e7ef26cbef8535faec209964a39698fb48511400dae072957be58bc13e0a",
+    "grader.mjs": "c83d7a6db8cee32ac7e93c538fa8a3d49cd8a5c8b68b09ecfa9851dd1fc302e7",
+    "runtime.mjs": "34d942729e45c0c41c44305c2d558ff7f2fbb2406a92f2c2dfe7aa52361bca8a",
+    "../mentor/policy.mjs": "603a5f06ab2310e46c418fe9824766e416518aef1c5b6431451bf0097b99e480",
+    "../mentor/model.json": "6832b9478f204ecb335e5129d2d99bbbfab1a45d31db3e15421a1298401244a1",
+    "../mentor/local-model.mjs": "1f2c65b4fd8adb5dcf6c8b47947a23c0cb5682d1751ad70f654b8858646c5ff2",
+    "../mentor/model-assets.json": "9c1a697b064df0ac70a8b098cbbe5c1c62b4dacfc9695bcc696f5c45ee81751c",
+    "../scripts/grade-benchmark.mjs": "d702bd938c7393cc22373b58bc84b3bed62855b80ab16d270cabf6bceaa59fe3",
+    "../scripts/report-study.mjs": "5dc6c5e311ccca15a87733c7bac1e05829ef0e192d6a35f4ec5a06b78107aa38",
+    "../scripts/allocate-study.mjs": "d48f445826eaa3a6fa44f74a9a92b1ff799f5778216b76b0af25c7695f6604e3",
+    "../scripts/benchmark-freeze.mjs": "46d91e40e00b9310025b3fc162a25b67c60e29cbb8472f35c4786efca91dbd8e",
+    "../server.mjs": "53ebf90bfed806f7c0fc40cc9a4f745c79e18f537e9c2303422c214caadb2d91",
+    "../public/assessment.js": "5c75947d9fcaa93977d08d2724650c39e0333c9bfb35c64b0986b639377038c7",
+    "../public/assessment.html": "b72c31ed4bdaf73713937fff86f9159c235fb5b1148dfbbaaa65cb58b07c0a34",
+    "../package-lock.json": "d7c3d8a929974f07a69f07f28f980c9b9967ea20d42aa6b33ff0dda9056dab8a"
+  },
+  "bankHash": "0a3864732568b4ddb67b8db60054d192c498acc727e35c36203daa6689d4d157",
+  "scope": "Practice/prompt-excluded development assessment bank. Designer-visible; not guaranteed unseen or secure after source publication."
+}

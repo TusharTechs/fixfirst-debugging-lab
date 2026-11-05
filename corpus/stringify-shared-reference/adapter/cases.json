@@ -1,0 +1,105 @@
+[
+  {
+    "name": "Plain object keys remain sorted",
+    "args": [
+      {
+        "z": 2,
+        "a": 1
+      }
+    ],
+    "expected": "{\"a\":1,\"z\":2}"
+  },
+  {
+    "name": "Shared child is not a cycle (upstream regression)",
+    "scenario": "serialize-graph",
+    "args": [
+      "shared-object",
+      {
+        "x": 1
+      }
+    ],
+    "expected": {
+      "status": "returned",
+      "value": "{\"a\":{\"x\":1},\"b\":{\"x\":1}}"
+    }
+  },
+  {
+    "name": "Shared array item is not a cycle (FixFirst boundary)",
+    "scenario": "serialize-graph",
+    "args": [
+      "shared-array",
+      {
+        "x": 1
+      }
+    ],
+    "expected": {
+      "status": "returned",
+      "value": "[{\"x\":1},{\"x\":1}]"
+    }
+  },
+  {
+    "name": "Cycle option must not mark shared children (FixFirst boundary)",
+    "scenario": "serialize-graph",
+    "args": [
+      "shared-object",
+      {
+        "x": 1
+      },
+      {
+        "cycles": true
+      }
+    ],
+    "expected": {
+      "status": "returned",
+      "value": "{\"a\":{\"x\":1},\"b\":{\"x\":1}}"
+    }
+  },
+  {
+    "name": "A real cycle still throws",
+    "scenario": "serialize-graph",
+    "args": [
+      "cycle",
+      null
+    ],
+    "expected": {
+      "status": "threw",
+      "errorType": "TypeError"
+    }
+  },
+  {
+    "name": "An allowed cycle keeps its marker",
+    "scenario": "serialize-graph",
+    "args": [
+      "cycle",
+      null,
+      {
+        "cycles": true
+      }
+    ],
+    "expected": {
+      "status": "returned",
+      "value": "{\"a\":1,\"self\":\"__cycle__\"}"
+    }
+  },
+  {
+    "name": "Distinct but equal objects both serialize",
+    "args": [
+      {
+        "a": {
+          "x": 1
+        },
+        "b": {
+          "x": 1
+        }
+      }
+    ],
+    "expected": "{\"a\":{\"x\":1},\"b\":{\"x\":1}}"
+  },
+  {
+    "name": "Null stays JSON null",
+    "args": [
+      null
+    ],
+    "expected": "null"
+  }
+]

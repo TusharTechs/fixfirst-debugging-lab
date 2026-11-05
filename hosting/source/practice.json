@@ -1,0 +1,340 @@
+[
+  {
+    "id": "invoice",
+    "title": "The disappearing invoice",
+    "skill": "Truthiness vs. missing data",
+    "contract": "Keep finite numeric balances, including 0. Exclude null, undefined, NaN, and non-numeric values. Preserve the original records and their order.",
+    "tests": [
+      {
+        "name": "Positive balances stay",
+        "expected": [
+          {
+            "id": "a",
+            "balance": 25
+          }
+        ]
+      },
+      {
+        "name": "Zero is a valid balance",
+        "expected": [
+          {
+            "id": "paid",
+            "balance": 0
+          }
+        ]
+      },
+      {
+        "name": "Missing and invalid balances stay out",
+        "expected": [
+          {
+            "id": "e",
+            "balance": -5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "inventory",
+    "title": "An empty shelf is still a shelf",
+    "skill": "Independent transfer",
+    "contract": "Return the names of products whose stock is a finite number, including zero and negative adjustments. Reject missing, string, NaN, or infinite stock values.",
+    "transfer": true,
+    "tests": [
+      {
+        "name": "Ordinary stock",
+        "expected": [
+          "Notebook"
+        ]
+      },
+      {
+        "name": "Out-of-stock products are retained",
+        "expected": [
+          "Pencil",
+          "Pen"
+        ]
+      },
+      {
+        "name": "Invalid stock is excluded",
+        "expected": [
+          "E"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "batch",
+    "title": "The final batch never arrives",
+    "skill": "Boundary conditions",
+    "contract": "For a positive integer size, return all records in consecutive batches of at most size. Empty input returns []. Invalid sizes must throw an Error. Do not mutate the input.",
+    "tests": [
+      {
+        "name": "Complete batches",
+        "expected": [
+          [
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      },
+      {
+        "name": "Incomplete final batch",
+        "expected": [
+          [
+            1,
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      },
+      {
+        "name": "Input smaller than a batch",
+        "expected": [
+          [
+            1
+          ]
+        ]
+      },
+      {
+        "name": "Empty input",
+        "expected": []
+      },
+      {
+        "name": "Zero size is rejected",
+        "throws": true
+      },
+      {
+        "name": "Fractional size is rejected",
+        "throws": true
+      }
+    ]
+  },
+  {
+    "id": "url-join-fragment",
+    "title": "The missing part of the URL",
+    "skill": "Parsing boundaries & regression safety",
+    "contract": "Preserve the entire fragment after the first #, including additional #, ? and & characters. Continue to normalize paths and pre-fragment query parameters, accept either strings or an array, reject non-string segments, and leave caller inputs unchanged.",
+    "tests": [
+      {
+        "name": "Ordinary path and query",
+        "expected": "http://www.google.com/foo/bar?test=123"
+      },
+      {
+        "name": "Fragment with another hash",
+        "expected": "https://example.com/docs#section#details"
+      },
+      {
+        "name": "Array API preserves two hashes",
+        "expected": "https://example.com/docs##details"
+      },
+      {
+        "name": "Already assembled URL keeps its fragment",
+        "expected": "https://example.com/docs#section#details"
+      },
+      {
+        "name": "Query characters inside the fragment",
+        "expected": "https://example.com?a=1&b=2#section#details?x=1&y=2"
+      },
+      {
+        "name": "Queries before fragment still normalize",
+        "expected": "http://example.org/x?a=1&b=2"
+      },
+      {
+        "name": "Array input is not mutated",
+        "expected": "http://www.google.com/foo/bar?test=123"
+      },
+      {
+        "name": "Empty input stays empty",
+        "expected": ""
+      },
+      {
+        "name": "Fragment consisting of a hash (FixFirst boundary case)",
+        "expected": "https://example.com##"
+      },
+      {
+        "name": "Invalid segment remains an error",
+        "throws": true
+      }
+    ]
+  },
+  {
+    "id": "debounce-rejection",
+    "title": "When failure becomes success",
+    "skill": "Promise settlement & async state",
+    "contract": "pDebounce.promise() must preserve rejection and the exact reason, including undefined, null, false, zero, an empty string and NaN. Concurrent callers must share the same execution. Queued calls must still run after an initial rejection, and later calls must recover.",
+    "tests": [
+      {
+        "name": "Rejection reason: undefined",
+        "expected": {
+          "statuses": [
+            "rejected",
+            "rejected"
+          ],
+          "reasonPreserved": true,
+          "recovered": "recovered",
+          "calls": 2
+        }
+      },
+      {
+        "name": "Rejection reason: null",
+        "expected": {
+          "statuses": [
+            "rejected",
+            "rejected"
+          ],
+          "reasonPreserved": true,
+          "recovered": "recovered",
+          "calls": 2
+        }
+      },
+      {
+        "name": "Rejection reason: false",
+        "expected": {
+          "statuses": [
+            "rejected",
+            "rejected"
+          ],
+          "reasonPreserved": true,
+          "recovered": "recovered",
+          "calls": 2
+        }
+      },
+      {
+        "name": "Rejection reason: zero",
+        "expected": {
+          "statuses": [
+            "rejected",
+            "rejected"
+          ],
+          "reasonPreserved": true,
+          "recovered": "recovered",
+          "calls": 2
+        }
+      },
+      {
+        "name": "Rejection reason: empty",
+        "expected": {
+          "statuses": [
+            "rejected",
+            "rejected"
+          ],
+          "reasonPreserved": true,
+          "recovered": "recovered",
+          "calls": 2
+        }
+      },
+      {
+        "name": "Rejection reason: nan",
+        "expected": {
+          "statuses": [
+            "rejected",
+            "rejected"
+          ],
+          "reasonPreserved": true,
+          "recovered": "recovered",
+          "calls": 2
+        }
+      },
+      {
+        "name": "Rejection reason: error",
+        "expected": {
+          "statuses": [
+            "rejected",
+            "rejected"
+          ],
+          "reasonPreserved": true,
+          "recovered": "recovered",
+          "calls": 2
+        }
+      },
+      {
+        "name": "Concurrent successful callers share execution",
+        "expected": {
+          "values": [
+            7,
+            7
+          ],
+          "calls": 1
+        }
+      },
+      {
+        "name": "Rejected first call still processes latest queued call",
+        "expected": {
+          "statuses": [
+            "rejected",
+            "fulfilled",
+            "fulfilled"
+          ],
+          "reasonPreserved": true,
+          "queued": [
+            "latest",
+            "latest"
+          ],
+          "recovered": "recover",
+          "calls": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "stringify-shared-reference",
+    "title": "The cycle that was not a cycle",
+    "skill": "Graph identity & traversal state",
+    "contract": "Two properties may point to the same object without forming a cycle: both must serialize. Actual ancestor cycles must still throw by default or emit __cycle__ when cycles:true. Preserve sorting, null handling and caller data.",
+    "tests": [
+      {
+        "name": "Plain object keys remain sorted",
+        "expected": "{\"a\":1,\"z\":2}"
+      },
+      {
+        "name": "Shared child is not a cycle (upstream regression)",
+        "expected": {
+          "status": "returned",
+          "value": "{\"a\":{\"x\":1},\"b\":{\"x\":1}}"
+        }
+      },
+      {
+        "name": "Shared array item is not a cycle (FixFirst boundary)",
+        "expected": {
+          "status": "returned",
+          "value": "[{\"x\":1},{\"x\":1}]"
+        }
+      },
+      {
+        "name": "Cycle option must not mark shared children (FixFirst boundary)",
+        "expected": {
+          "status": "returned",
+          "value": "{\"a\":{\"x\":1},\"b\":{\"x\":1}}"
+        }
+      },
+      {
+        "name": "A real cycle still throws",
+        "expected": {
+          "status": "threw",
+          "errorType": "TypeError"
+        }
+      },
+      {
+        "name": "An allowed cycle keeps its marker",
+        "expected": {
+          "status": "returned",
+          "value": "{\"a\":1,\"self\":\"__cycle__\"}"
+        }
+      },
+      {
+        "name": "Distinct but equal objects both serialize",
+        "expected": "{\"a\":{\"x\":1},\"b\":{\"x\":1}}"
+      },
+      {
+        "name": "Null stays JSON null",
+        "expected": "null"
+      }
+    ]
+  }
+]

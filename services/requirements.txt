@@ -1,0 +1,5 @@
+transformers==5.22.1
+spaces==0.51.3
+quickjs-ng==0.17.0.2
+torch==2.12.1
+cryptography==50.0.2

@@ -1,0 +1,101 @@
+<!doctype html><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' blob:; worker-src blob:; connect-src 'none'">
+<script>
+// Each evaluation gets a disposable worker in this opaque-origin frame.
+// Practice isolation only: this client-visible grader is not tamper-proof.
+let started = false;
+const workerSource = `
+onmessage = async function(event) {
+  const {code, entry, tests, format, driverSource} = event.data;
+  const runScenario = driverSource ? new Function("return (" + driverSource + ");")() : null;
+  const send = postMessage.bind(self);
+  const stringify = JSON.stringify;
+  const clone = structuredClone;
+  let fn;
+  try {
+    if (format === 'esm-default' || format === 'esm-named') {
+      const moduleURL = URL.createObjectURL(new Blob([code], {type:'text/javascript'}));
+      try { const loaded=await import(moduleURL);fn=format==='esm-named'?loaded[entry]:loaded.default; }
+      finally { URL.revokeObjectURL(moduleURL); }
+    } else if (format === 'commonjs') {
+      const module = {exports:{}};
+      const unavailable = () => {throw new Error('This practice runtime has no require() dependencies');};
+      fn = new Function('module','exports','require',code + '\\nreturn module.exports;')(module,module.exports,unavailable);
+    } else {
+      fn = new Function(code + '\\nreturn ' + entry + ';')();
+    }
+    if (typeof fn !== 'function') throw new Error('Expected function ' + entry);
+  } catch(error) {
+    send({error: String(error?.message ?? error).slice(0,500)});
+    return;
+  }
+  const results = [];
+  for (const test of tests) {
+    const args = clone(test.args);
+    const before = stringify(args);
+    try {
+      const value = test.scenario ? await runScenario(fn,{...test,args}) : await fn(...args);
+      const mutated = before !== stringify(args);
+      results.push({name: test.name, passed: !test.throws && !mutated && stringify(value) === stringify(test.expected),
+        actual: String(stringify(value)).slice(0,2000), expected: test.throws ? 'Error' : String(stringify(test.expected)).slice(0,2000), mutated});
+    } catch(error) {
+      results.push({name: test.name, passed: !!test.throws, threw: true,
+        actual: String(error?.message ?? error).slice(0,500), expected: test.throws ? 'Error' : String(stringify(test.expected)).slice(0,2000)});
+    }
+  }
+  send({results});
+};`;
+function evaluate(code, entry, tests, format, driverSource) {
+  return new Promise(resolve => {
+    const url = URL.createObjectURL(new Blob([workerSource], {type:'text/javascript'}));
+    const worker = new Worker(url);
+    URL.revokeObjectURL(url);
+    let settled = false;
+    const finish = result => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      worker.terminate();
+      resolve(result);
+    };
+    const timer = setTimeout(() => finish({error:'Evaluation timed out.'}), 2000);
+    worker.onmessage = event => finish(event.data);
+    worker.onerror = () => finish({error:'Runner error. Check your JavaScript syntax.'});
+    worker.postMessage({code,entry,tests,format,driverSource});
+  });
+}
+function regressionOutcome(result) {
+  if (result.error || !result.results?.length || result.results[0].threw) return 'error';
+  return result.results[0].passed ? 'passed' : 'failed';
+}
+addEventListener('message', async event => {
+  if (event.source !== parent || event.data?.type !== 'execute' || started) return;
+  started = true;
+  const {runId,code,originalCode,entry,tests,custom,format,driverSource} = event.data;
+  try {
+    // Original, repaired regression, and ordinary suite cannot mutate each other's inputs/globals.
+    const customTests = custom ? [{...custom,name:'Your regression case'}] : [];
+    const [suite,repair,original] = await Promise.all([
+      evaluate(code,entry,tests,format,driverSource),
+      custom ? evaluate(code,entry,customTests,format,driverSource) : Promise.resolve(null),
+      custom ? evaluate(originalCode,entry,customTests,format,driverSource) : Promise.resolve(null)
+    ]);
+    if (suite.error) {
+      parent.postMessage({type:'execution-result',runId,error:suite.error},'*');
+      return;
+    }
+    if (repair?.error) {
+      parent.postMessage({type:'execution-result',runId,error:'Regression evaluation failed: '+repair.error},'*');
+      return;
+    }
+    const results = [...suite.results,...(repair?.results || [])];
+    const regression = custom ? {
+      original:regressionOutcome(original), repaired:regressionOutcome(repair),
+      error:original.error || (original.results?.[0]?.threw ? 'Original code threw while checking this case.' : null)
+    } : null;
+    parent.postMessage({type:'execution-result',runId,results,regression},'*');
+  } catch(error) {
+    parent.postMessage({type:'execution-result',runId,error:'Unable to evaluate code: '+String(error?.message ?? error).slice(0,500)},'*');
+  }
+});
+parent.postMessage({type:'runner-ready'},'*');
+</script>
