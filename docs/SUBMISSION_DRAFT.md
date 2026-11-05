@@ -30,7 +30,7 @@ https://github.com/TusharTechs/fixfirst-debugging-lab
 
 https://fixfirst-debugging-lab.tusharaggarwal274.chatgpt.site/?task=url-join-fragment&demo=1
 
-The recorded technical walkthrough and voiceover script are in the submission handoff. The live route is sufficient for the template's live-app/video field; no invented video-hosting URL is provided.
+[Silent technical walkthrough (2:56)](https://github.com/TusharTechs/fixfirst-debugging-lab/blob/main/demo/FixFirst-demo.mp4) · [Voiceover script](DEMO_SCRIPT.md). The live route is sufficient for the template's live-app/video field; no invented video-hosting URL is provided.
 
 ## Scale & severity of the problem
 

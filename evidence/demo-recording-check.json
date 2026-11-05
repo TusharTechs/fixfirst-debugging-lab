@@ -1,0 +1,21 @@
+{
+  "kind": "technical-demo-recording",
+  "at": "2026-11-05T14:37:27.928Z",
+  "durationTargetSeconds": 165,
+  "video": "FixFirst demo.webm",
+  "silent": true,
+  "mentorMode": "Hosted AI planner \u00b7 Qwen2.5-Coder-1.5B-Instruct \u00b7 approved coaching prompts",
+  "baseline": "5/10",
+  "repair": "10/10",
+  "regression": "11/11; original failed, repair passed",
+  "exportMarkedTechnical": true,
+  "referenceRepairSupplied": true,
+  "notLearnerData": true,
+  "pageErrors": [],
+  "mp4": "FixFirst demo.mp4",
+  "actualDurationSeconds": 175.76,
+  "mp4Bytes": 3106372,
+  "videoCodec": "H.264",
+  "width": 1280,
+  "height": 900
+}

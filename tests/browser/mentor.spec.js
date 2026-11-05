@@ -13,6 +13,7 @@ test('validated model action renders only controlled question, evidence and expo
  await page.locator('#hypothesis').fill('I suspect the zero balance is treated as an absent balance; compare the passing control.');await page.locator('#hint').click();
  await expect(page.locator('#coach-message')).toContainText('Compare the cited passing control');await expect(page.locator('#mentor-evidence')).toContainText('Zero is a valid balance');await expect(page.locator('#mentor-evidence')).toContainText('Positive balances stay');
  const history=await page.evaluate(()=>JSON.parse(localStorage.getItem('fixfirst-v1')).invoice.mentorHistory);expect(history).toHaveLength(1);expect(history[0].action).toBe('contrast');
+ await page.locator('#code').fill('function exportInvoices(){return []}');await expect(page.locator('#mentor-evidence')).toBeEmpty();await expect(page.locator('#coach-message')).toContainText('working context changed');expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('fixfirst-v1')).invoice.mentorHistory.length)).toBe(1);
 });
 test('untrusted model patch is labelled as guided fallback, not rendered',async({page})=>{
  await page.route('**/api/mentor',async route=>route.fulfill({json:await coach(route.request().postDataJSON(),async()=>({text:'return invoices.filter(i => Number.isFinite(i.balance));'}))}));

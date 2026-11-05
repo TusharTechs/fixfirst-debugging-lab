@@ -1,7 +1,7 @@
 {
-  "url": "http://127.0.0.1:4180",
-  "at": "2026-11-05T14:30:34.258Z",
-  "mentorMode": "Guided coach · no model",
+  "url": "https://fixfirst-debugging-lab.tusharaggarwal274.chatgpt.site",
+  "at": "2026-11-05T14:34:02.619Z",
+  "mentorMode": "Hosted AI planner · Qwen2.5-Coder-1.5B-Instruct · approved coaching prompts",
   "baseline": "5/10",
   "repair": "10/10",
   "withRegression": "11/11",

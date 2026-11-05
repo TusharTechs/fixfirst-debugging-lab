@@ -6,6 +6,8 @@
 
 [Open the judge walkthrough](https://fixfirst-debugging-lab.tusharaggarwal274.chatgpt.site/?task=url-join-fragment&demo=1) · [Practice lab](https://fixfirst-debugging-lab.tusharaggarwal274.chatgpt.site/) · [Development grading](https://fixfirst-debugging-lab.tusharaggarwal274.chatgpt.site/grade.html) · [Backend deployment/source](https://huggingface.co/spaces/TechTush/fixfirst-services)
 
+[Watch/download the 2:56 silent technical recording](demo/FixFirst-demo.mp4) · [Narration script](docs/DEMO_SCRIPT.md)
+
 ## See the whole loop in three minutes
 
 1. In the judge walkthrough, choose **Reproduce the bug**. The pinned historical `url-join` module passes 5 of 10 browser cases; fragments with a second `#` lose content.
